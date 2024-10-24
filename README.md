@@ -1,0 +1,2 @@
+# thriftify
+Your budgeting buddy.
