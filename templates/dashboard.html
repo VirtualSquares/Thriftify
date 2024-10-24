@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/assets/css/dashboard.css">
+
+</head>
+
+<body>
+<nav class="navbar">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/forms">Product Finder</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+    </ul>
+</nav>
+
+<div class="settings" style="display: flex; width: 100%; justify-content: center;">
+    <select id = "settings" style="border-radius: 10px; background-color: white; font-family: Comfortaa; padding: 15px; color: blue; text-align: center;">
+        <option value="0">Choose Budget</option>
+    </select>
+</div>
+
+<div class="buttons">
+    <div style="width: 78%;">
+        <canvas id="myChart"></canvas>
+    </div>
+</div>
+
+<!-- Create Budget Modal -->
+<div id="budgetModal" class="modal">
+    <div class="modal-content">
+        <span id="closeBudgetModal" class="close">&times;</span>
+        <h2>Create Budget</h2>
+        <form id="budgetForm" method="post">
+            <label for="duration">What is the start date?</label><br>
+            <input type="date" name="startDate"><br>
+            <br><label for="duration">How long should the budgeting log be (in days)?</label><br>
+            <input type="number" id="duration" name="duration" min="1" required><br><br>
+            <label for="amount">How much money do you intend to spend in this duration?</label><br>
+            <input type="number" id="amount" name="budget" step="0.01" required><br><br>
+            <button type="submit" class="styleButton" name="budgetCreation">Create Budget</button>
+        </form>
+    </div>
+</div>
+
+<!-- Log Spending Modal -->
+<div id="spendingModal" class="modal">
+    <div class="modal-content">
+        <span id="closeSpendingModal" class="close">&times;</span>
+        <h2>Log Spending</h2>
+        <form id="spendingForm" method="post">
+            <label for="date">Which day are you logging spending for?</label><br>
+            <input type="date" id="date" name="date" required><br><br>
+            <label for="spent">How much was spent?</label><br>
+            <input type="number" id="spent" name="spent" step="0.01" required><br><br>
+            <label for="purpose">What did you spend on?</label><br>
+            <input type="text" id="purpose" name="purpose" required><br><br>
+            <button type="submit" class="styleButton" name="spendingLog">Log Spending</button>
+        </form>
+    </div>
+</div>
+
+<div class="buttons">
+    <button id="createBudgetBtn" class="styleButton">Create Budget</button>
+    <button id="logSpendingBtn" class="styleButton">Log Spending</button>
+    <button id="checkStatsBtn" class="styleButton" onclick="location.href='/stats'">Check Stats</button>
+
+</div>
+
+<script src="static/assets/js/dashboard.js"></script>
+</body>
+
+</html>

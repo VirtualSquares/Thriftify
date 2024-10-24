@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stats</title>
+    <link rel="stylesheet" href="static/assets/css/stats.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #F47C4A;
+            font-family: 'Comfortaa', cursive;
+            text-align: center;
+        }
+        .title {
+            font-size: 75px;
+            margin: 15px;
+        }
+        .chart-container {
+            position: relative;
+            max-width: 800px; /* Max width for the chart */
+            margin: 20px auto; /* Center the chart */
+        }
+        #myChart {
+            height: 400px; /* Set height for the chart */
+            background-color: white; /* White background for the chart */
+            padding: 20px; /* Padding around the chart */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        .summary {
+            font-size: 20px;
+            margin: 15px auto;
+            width: 50%;
+            border: 2px solid black;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="title">Stats</div>
+
+<div class="chart-container">
+    <canvas id="myChart"></canvas>
+</div>
+
+<div class="summary">
+    {% if summary %}
+    <p>{{ summary | replace('*', '') }}</p>
+    {% else %}
+    <p>No spending summary available.</p>
+    {% endif %}
+</div>
+
+<script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    // Data for the chart
+    const spendingData = {{ spending_data | tojson }};
+    const spendingLabels = spendingData.map(item => item.purpose);
+    const spendingAmounts = spendingData.map(item => item.spent);
+
+    const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: spendingLabels,
+            datasets: [{
+                label: 'Spending by Purpose',
+                data: spendingAmounts,
+                backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

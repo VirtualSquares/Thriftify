@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="../static/forms.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+<style>
+    body, html {
+        font-family: "Comfortaa";
+        background-color: #F47C4A;
+    }
+
+
+    /* Navbar Styles */
+    .navbar {
+        width: 50%; /* Set the width of the navbar */
+        margin: 20px auto; /* Center it horizontally with some top margin */
+        border: 2px solid #888; /* Border around the navbar */
+        border-radius: 25px; /* Rounded corners */
+        background-color: #fff; /* Background color */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    }
+
+    .navbar ul {
+        width: 100%;
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 0;
+    }
+
+    .navbar li {
+    }
+
+    .navbar a {
+        text-decoration: none; /* Remove underline from links */
+        color: #455EB5; /* Text color */
+        font-weight: bold; /* Bold text */
+        transition: color 0.3s; /* Smooth color transition on hover */
+    }
+
+    .navbar a:hover {
+        color: #F47C4A; /* Change color on hover */
+    }
+
+    /* Other styles can remain as needed */
+
+</style>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/forms">Product Finder</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+    </ul>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm p-3 min-vh-100">
+            <h2 class="text-center">Product Finder</h2>
+            <form action="" method="post">
+                <div class="p-4 mx-auto" style="background-color: white; width: 400px; border-radius: 5px; border: 2px black solid;">
+                    <div><label>How many products do you want?</label></div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                        <label class="form-check-label" for="inlineRadio1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                        <label class="form-check-label" for="inlineRadio2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                        <label class="form-check-label" for="inlineRadio3">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+                        <label class="form-check-label" for="inlineRadio4">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
+                        <label class="form-check-label" for="inlineRadio5">5+</label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">What's your budget?</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Soccer, coding, etc" name="budget" style="border: 1px solid black;">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">What would you like to find?</label>
+                        <textarea class="form-control" style="border: 1px solid black;" id="exampleFormControlTextarea1" type="text" rows="3" placeholder="Soccer, coding, etc" name="topic"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success" style="width: 100%;">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
